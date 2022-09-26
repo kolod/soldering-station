@@ -1,3 +1,4 @@
 *.zip
 ~*
 */~*
+/firmware/soldering-station/Debug/*
