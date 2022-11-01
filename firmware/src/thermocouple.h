@@ -25,15 +25,7 @@ float voltage_to_themperature(float v) {
 		{ 6.0572562E+02,  2.5148718E+01,  2.3539401E+01,  4.6547228E-02,  1.3444400E-02,  5.9236853E-04,  8.3445513E-04,  4.6121445E-04,  2.5488122E-05},
 	};
 
-	const int range;
-
-	if (v < 4.096) {
-		range = 0;
-	} else if (v < 16.397) {
-		range = 1;
-	} else {
-		range = 2;
-	}
+	const int range = (v < 4.096) ? 0 : (v < 16.397) ? 1 : 2;
 
 	float vv0 = v - k[range].v0;
 	float P = vv0 * (k[range].p1 + vv0 * (k[range].p2 + vv0 * (k[range].p3 + vv0 * k[range].p4)));
