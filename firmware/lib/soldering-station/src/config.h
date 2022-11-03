@@ -7,7 +7,13 @@
 
 #pragma once
 
-#include <Arduino.h>
+#ifdef UNIT_TEST
+    #include "ArduinoFake.h"
+    extern volatile unsigned char PORTD;
+    extern volatile unsigned char DDRD;
+#else
+    #include "Arduino.h"
+#endif
 
 #define ADC_CHANNEL 0
 
@@ -28,6 +34,6 @@
 
 #define BUZZER        10
 
-#define ENCODER_A     16
-#define ENCODER_B     15
+#define ENCODER_A     15
+#define ENCODER_B     16
 #define ENCODER_KEY   14
